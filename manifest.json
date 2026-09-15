@@ -1,9 +1,9 @@
 {
-  "name": "GuroFilipino v2.1",
+  "name": "GuroFilipino v4 AI",
   "short_name": "GuroFilipino",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f7f4ea",
   "theme_color": "#174c3c",
-  "description": "Filipino 4-session DLP generator with offline guided lesson drafting."
+  "description": "AI-ready Filipino teacher toolkit with secure backend integration for four-session DLP drafting."
 }
