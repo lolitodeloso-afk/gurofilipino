@@ -1,9 +1,9 @@
 {
-  "name": "GuroFilipino",
+  "name": "GuroFilipino v2.1",
   "short_name": "GuroFilipino",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f7f3e8",
-  "theme_color": "#173f35",
-  "description": "Teacher-assistance PWA para sa pagtuturo ng Filipino."
+  "background_color": "#f7f4ea",
+  "theme_color": "#174c3c",
+  "description": "Filipino 4-session DLP generator with offline guided lesson drafting."
 }

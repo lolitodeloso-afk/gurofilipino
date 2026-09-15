@@ -1,106 +1,149 @@
-<!doctype html>
-<html lang="fil">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#173f35">
-<link rel="manifest" href="manifest.json">
-<title>GuroFilipino</title>
-<style>
-:root{--g:#173f35;--g2:#2c6e5d;--cream:#f7f3e8;--gold:#e5b94f;--ink:#17221f;--card:#fff}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--cream);color:var(--ink)}
-header{background:linear-gradient(135deg,var(--g),var(--g2));color:white;padding:22px 18px 32px}
-.brand{max-width:1100px;margin:auto;display:flex;gap:14px;align-items:center}.logo{width:54px;height:54px;border-radius:16px;background:var(--gold);display:grid;place-items:center;font-size:30px}
-header h1{margin:0;font-size:26px}.sub{opacity:.88;margin-top:3px}.wrap{max-width:1100px;margin:-16px auto 40px;padding:0 14px}
-nav{background:white;border-radius:18px;padding:8px;display:flex;gap:7px;overflow:auto;box-shadow:0 8px 28px #0001;position:sticky;top:8px;z-index:5}
-nav button{white-space:nowrap;border:0;background:transparent;padding:11px 14px;border-radius:12px;font-weight:700;color:#345;cursor:pointer}nav button.active{background:var(--g);color:white}
-.page{display:none}.page.active{display:block}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:16px}
-.card{background:var(--card);border-radius:18px;padding:18px;box-shadow:0 5px 20px #0000000d;border:1px solid #e8e5dc}.card h3{margin:4px 0 7px}.big{font-size:28px}
-label{display:block;font-size:13px;font-weight:750;margin:12px 0 5px}input,select,textarea{width:100%;border:1px solid #ccd5d0;border-radius:11px;padding:11px;background:#fff;font:inherit}textarea{min-height:90px;resize:vertical}
-.btn{border:0;border-radius:11px;padding:11px 14px;background:var(--g);color:white;font-weight:750;cursor:pointer;margin-top:10px}.btn.alt{background:#e9efeC;color:var(--g)}.btn.gold{background:var(--gold);color:#2b2618}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.out{white-space:pre-wrap;background:#f8faf8;border:1px dashed #b9c8c1;padding:14px;border-radius:12px;margin-top:12px;min-height:80px}
-.badge{display:inline-block;padding:5px 9px;border-radius:99px;background:#e9f2ef;color:var(--g);font-size:12px;font-weight:800}
-.resource{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid #eee}.resource:last-child{border:0}
-a{color:var(--g2);font-weight:700}.note{font-size:13px;color:#65736d}.install{float:right}
-@media(max-width:650px){.row{grid-template-columns:1fr}.wrap{padding:0 10px}.install{float:none}}
-@media print{header,nav,.no-print{display:none!important}.wrap{margin:0}.card{box-shadow:none;border:0}.page{display:none!important}.page.active{display:block!important}}
-</style>
-</head>
-<body>
-<header><div class="brand"><div class="logo">📖</div><div><h1>GuroFilipino</h1><div class="sub">Katuwang ng Guro sa Wika, Panitikan at Pagtuturo</div></div></div></header>
-<div class="wrap">
-<nav id="nav">
-<button class="active" data-page="home">Tahanan</button><button data-page="dll">DLL • ILAW</button><button data-page="quiz">Tanong Generator</button><button data-page="rubric">Rubrik</button><button data-page="resources">Sanggunian</button><button data-page="notes">Aking Materyales</button>
-</nav>
+<!doctype html><html lang="fil"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#174c3c"><link rel="manifest" href="manifest.json"><title>GuroFilipino v2.1</title><style>
+:root{--g:#174c3c;--g2:#26735c;--cream:#f7f4ea;--gold:#e6b84c;--ink:#18211e}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
+header{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;padding:20px}.brand{max-width:1200px;margin:auto;display:flex;align-items:center;gap:13px}.mark{font-size:34px;background:var(--gold);border-radius:14px;padding:8px}
+h1{margin:0}.sub{opacity:.9}.wrap{max-width:1200px;margin:auto;padding:14px}.tabs{display:flex;gap:7px;overflow:auto;position:sticky;top:0;background:var(--cream);padding:8px 0;z-index:5}
+button,.btn{border:0;border-radius:10px;padding:10px 13px;font-weight:700;cursor:pointer}.tabs button{white-space:nowrap;background:#fff}.tabs button.on,.primary{background:var(--g);color:#fff}.gold{background:var(--gold);color:#241d0d}.soft{background:#e7eeeb;color:var(--g)}
+.page{display:none}.page.on{display:block}.card{background:#fff;border:1px solid #e4e2d9;border-radius:16px;padding:17px;margin:10px 0;box-shadow:0 4px 18px #0000000b}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.four{grid-template-columns:repeat(4,1fr)}label{font-weight:700;font-size:13px;display:block;margin:9px 0 4px}
+input,textarea,select{width:100%;padding:9px;border:1px solid #cbd4d0;border-radius:9px;font:inherit}textarea{min-height:90px;resize:vertical}.small textarea{min-height:130px}
+.hint{font-size:12px;color:#68746f}.session{border-top:4px solid var(--g2)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.preview{background:white;padding:18px;overflow:auto}.doc{font-family:"Times New Roman",serif;color:#000;min-width:920px}.doc .center{text-align:center}.doc table{border-collapse:collapse;width:100%;table-layout:fixed}.doc td,.doc th{border:1px solid #222;padding:6px;vertical-align:top}.doc .shade{background:#ddd;font-weight:bold;text-align:center}.doc .left{width:25%;font-weight:bold;font-style:italic}.doc h3{margin:8px 0}.badge{background:#e7f1ed;color:var(--g);padding:4px 8px;border-radius:99px;font-size:12px;font-weight:bold}
+@media(max-width:800px){.grid,.four{grid-template-columns:1fr}.doc{min-width:820px}}
+@media print{header,.tabs,.no-print,.formOnly{display:none!important}.wrap{max-width:none;padding:0}.preview{padding:0}.doc{min-width:0;font-size:10pt}.page{display:none!important}#preview.page{display:block!important}}
+</style></head><body>
+<header><div class="brand"><div class="mark">📖</div><div><h1>GuroFilipino v2.1</h1><div class="sub">Banghay-Aralin / DLP Generator • 4-Session Format</div></div></div></header>
+<div class="wrap"><div class="tabs no-print"><button class="on" data-page="setup">Setup</button><button data-page="sessions">4 Sesyon</button><button data-page="preview">Preview</button><button data-page="guide">Gabay</button></div>
+<section id="setup" class="page on"><div class="card"><span class="badge">Batay sa iyong sample DLP format</span><h2>Impormasyon ng Banghay-Aralin</h2><div class="grid">
+<label>Termino</label><input id="term" value="UNANG TERMINO"><label>School Year</label><input id="sy" value="2026-2027"><label>Instructional Block</label><input id="week" value="Linggo 1"><label>Name of Lesson (Paksang Aralin)</label><input id="lesson" value="">
+<label>Learning Area/s (Asignatura)</label><input id="area" value="FILIPINO"><label>Designed by Teacher/s</label><input id="teacher" value="LOLITO E. DELOSO JR."><label>Baitang at Pangkat</label><input id="grade" value="8"><label>References / Mga Sanggunian</label><input id="refs" value="Modelong Banghay Aralin sa Filipino Baitang 8">
+</div><label>Declaration of AI use</label><textarea id="ai">Ginamit ang AI bilang katuwang sa pagbuo at pagrebisa ng ilang bahagi ng banghay-aralin. Sinuri at pinagtibay ng guro ang nilalaman.</textarea>
+<h3>Lagda</h3><div class="grid"><label>Posisyon ng Guro</label><input id="teacherPos" value="SST-VI"><label>Iniwasto ni</label><input id="reviewer" value="GRACE B. ORTILLANO"><label>Posisyon</label><input id="reviewerPos" value="MT-I"><label>Pinagtibay ni</label><input id="approver" value="EDWIN G. CAPON"><label>Posisyon</label><input id="approverPos" value="Head Teacher II"></div>
+<label>Mahahalagang Konsepto / Source Notes</label><textarea id="sourceNotes" placeholder="Ilagay rito ang mahahalagang impormasyon mula sa Curriculum Guide, lesson exemplar, module, o iba pang beripikadong sanggunian. Gagamitin ito ng offline generator bilang batayan."></textarea>
+<label>Target Learning Competency</label><textarea id="targetCompetency" placeholder="I-paste ang eksaktong competency mula sa opisyal na Curriculum Guide."></textarea>
+<div class="actions"><button class="primary" onclick="page('sessions')">Susunod: 4 Sesyon →</button><button class="soft" onclick="save()">I-save Draft</button></div></div></section>
+<section id="sessions" class="page"><div class="card"><h2>Nilalaman ng Apat na Sesyon</h2><p class="hint">Ang bawat sesyon ay may competency, objectives, learner context, pre-lesson, flow, resources, integration, assessment, extended learning at reflection.</p><div class="actions"><button class="gold" onclick="autoGenerate()">✨ Awtomatikong Bumuo ng 4 Sesyon</button><button class="soft" onclick="copySession(1,2)">Kopyahin Sesyon 1 → 2</button><button class="soft" onclick="copySession(2,3)">2 → 3</button><button class="soft" onclick="copySession(3,4)">3 → 4</button></div></div>
+<div class="grid"><div class="card session small"><h3>Sesyon 1</h3>
+<label>Learning Competency</label><textarea id="competency1"></textarea>
+<label>Learning Objectives</label><textarea id="objective1"></textarea>
+<label>Learner Context</label><textarea id="context1"></textarea>
+<label>Pre-Lesson (Bago ang Aralin)</label><textarea id="pre1"></textarea>
+<label>Flow (Daloy)</label><textarea id="flow1"></textarea>
+<label>Learning Resources</label><textarea id="resources1">Lesson Exemplar\nMultimedia presentation\nWorksheet\nMga Larawan</textarea>
+<label>Opportunities for Integration</label><textarea id="integration1"></textarea>
+<label>Formative Assessment / Pormatibong Pagtatasa</label><textarea id="assessment1"></textarea>
+<label>Extended Learning Opportunities</label><textarea id="extended1"></textarea>
+<label>Reflections / Mga Repleksyon</label><textarea id="reflection1"></textarea>
+</div><div class="card session small"><h3>Sesyon 2</h3>
+<label>Learning Competency</label><textarea id="competency2"></textarea>
+<label>Learning Objectives</label><textarea id="objective2"></textarea>
+<label>Learner Context</label><textarea id="context2"></textarea>
+<label>Pre-Lesson (Bago ang Aralin)</label><textarea id="pre2"></textarea>
+<label>Flow (Daloy)</label><textarea id="flow2"></textarea>
+<label>Learning Resources</label><textarea id="resources2">Lesson Exemplar\nMultimedia presentation\nWorksheet\nMga Larawan</textarea>
+<label>Opportunities for Integration</label><textarea id="integration2"></textarea>
+<label>Formative Assessment / Pormatibong Pagtatasa</label><textarea id="assessment2"></textarea>
+<label>Extended Learning Opportunities</label><textarea id="extended2"></textarea>
+<label>Reflections / Mga Repleksyon</label><textarea id="reflection2"></textarea>
+</div><div class="card session small"><h3>Sesyon 3</h3>
+<label>Learning Competency</label><textarea id="competency3"></textarea>
+<label>Learning Objectives</label><textarea id="objective3"></textarea>
+<label>Learner Context</label><textarea id="context3"></textarea>
+<label>Pre-Lesson (Bago ang Aralin)</label><textarea id="pre3"></textarea>
+<label>Flow (Daloy)</label><textarea id="flow3"></textarea>
+<label>Learning Resources</label><textarea id="resources3">Lesson Exemplar\nMultimedia presentation\nWorksheet\nMga Larawan</textarea>
+<label>Opportunities for Integration</label><textarea id="integration3"></textarea>
+<label>Formative Assessment / Pormatibong Pagtatasa</label><textarea id="assessment3"></textarea>
+<label>Extended Learning Opportunities</label><textarea id="extended3"></textarea>
+<label>Reflections / Mga Repleksyon</label><textarea id="reflection3"></textarea>
+</div><div class="card session small"><h3>Sesyon 4</h3>
+<label>Learning Competency</label><textarea id="competency4"></textarea>
+<label>Learning Objectives</label><textarea id="objective4"></textarea>
+<label>Learner Context</label><textarea id="context4"></textarea>
+<label>Pre-Lesson (Bago ang Aralin)</label><textarea id="pre4"></textarea>
+<label>Flow (Daloy)</label><textarea id="flow4"></textarea>
+<label>Learning Resources</label><textarea id="resources4">Lesson Exemplar\nMultimedia presentation\nWorksheet\nMga Larawan</textarea>
+<label>Opportunities for Integration</label><textarea id="integration4"></textarea>
+<label>Formative Assessment / Pormatibong Pagtatasa</label><textarea id="assessment4"></textarea>
+<label>Extended Learning Opportunities</label><textarea id="extended4"></textarea>
+<label>Reflections / Mga Repleksyon</label><textarea id="reflection4"></textarea>
+</div></div><div class="actions"><button class="primary" onclick="makePreview()">Gumawa ng Preview</button><button class="soft" onclick="save()">I-save Draft</button></div></section>
+<section id="preview" class="page"><div class="actions no-print"><button class="gold" onclick="downloadWord()">Download Word-compatible .DOC</button><button class="primary" onclick="window.print()">Print / Save PDF</button><button class="soft" onclick="page('sessions')">I-edit</button></div><div class="preview"><div id="doc" class="doc"><p>I-click ang “Gumawa ng Preview” mula sa 4 Sesyon.</p></div></div></section>
+<section id="guide" class="page"><div class="card"><h2>Gabay sa v2.1</h2><p>May <b>offline guided generator</b> na ngayon: ilagay ang Paksang Aralin, eksaktong Target Learning Competency, at source notes, pagkatapos pindutin ang “Awtomatikong Bumuo ng 4 Sesyon.” Hindi ito cloud AI; gumagawa ito ng structured draft na dapat beripikahin at i-edit ng guro.<br><br>Ang generator ay sumusunod sa pangunahing organisasyon ng sample: Intentions, Learning Experience, Assessment at Ways Forward, na nakaayos sa apat na sesyon.</p><p><b>Word output:</b> Ang “Download Word-compatible .DOC” ay naglalabas ng dokumentong nabubuksan at nae-edit sa Microsoft Word. Kasama rin sa package ang orihinal mong sample na <b>DLP-Sample-Format.docx</b> bilang reference.</p><p><b>Mahalaga:</b> I-review ang competencies, objectives, activities, assessment at AI declaration bago isumite. Hindi awtomatikong pinapalitan ng app ang opisyal na curriculum wording.</p><div class="actions"><a class="btn soft" href="DLP-Sample-Format.docx" download>Download Sample Format</a><button class="soft" onclick="clearAll()">Clear Saved Draft</button></div></div></section>
+</div><script>
+const $=id=>document.getElementById(id), esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])).replace(/\n/g,'<br>');
+function page(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));$(id).classList.add('on');let b=document.querySelector(`[data-page="${id}"]`);if(b)b.classList.add('on');scrollTo(0,0)}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>page(b.dataset.page));
+const sections=['competency','objective','context','pre','flow','resources','integration','assessment','extended','reflection'];
+function val(id){return $(id)?.value||''}
+function save(){let d={};document.querySelectorAll('input,textarea,select').forEach(e=>{if(e.id)d[e.id]=e.value});localStorage.setItem('gf2',JSON.stringify(d));alert('Naka-save sa device na ito.')}
+function load(){let d=JSON.parse(localStorage.getItem('gf2')||'{}');Object.entries(d).forEach(([k,v])=>{if($(k))$(k).value=v})}
+function clearAll(){if(confirm('Burahin ang lahat ng kasalukuyang laman?')){localStorage.removeItem('gf2');document.querySelectorAll('input,textarea').forEach(e=>e.value='');location.reload()}}
+function cell(label,key){return `<td class="left">${label}</td>`+[1,2,3,4].map(i=>`<td>${esc(val(key+i))}</td>`).join('')}
+function makePreview(){
+let html=`<div class="center"><b>Republic of the Philippines<br>Department of Education<br>Region Caraga<br>Schools Division Office of Cabadbaran City<br>La Union National High School</b><br><br><b>BANGHAY ARALIN SA FILIPINO<br>${esc(val('term'))}<br>SY ${esc(val('sy'))}</b><br>Instructional Block: ${esc(val('week'))}</div><br>
+<table><tr><td class="left">Name of Lesson (Paksang Aralin):</td><td>${esc(val('lesson'))}</td></tr>
+<tr><td class="left">Learning Area/s (Asignatura):</td><td>${esc(val('area'))}</td></tr>
+<tr><td class="left">Designed by Teacher/s (Binuo ni/nina):</td><td>${esc(val('teacher'))}</td></tr>
+<tr><td class="left">Designed for which Grade Level and Section (Baitang at Pangkat):</td><td>${esc(val('grade'))}</td></tr>
+<tr><td class="left">No. of Sessions (Bilang ng Sesyon):</td><td>4</td></tr>
+<tr><td class="left">References (books, websites, toolkits, etc.) (Mga Sanggunian)</td><td>${esc(val('refs'))}</td></tr>
+<tr><td class="left">Declaration of AI use (Deklarasyon ng paggamit ng AI):<br><span style="font-weight:normal">Cite how AI was used in the formulation of the lesson plan. See DO 3 s.2026 Annex A.</span></td><td>${esc(val('ai'))}</td></tr></table><br>
+<table><tr><td class="shade" colspan="5">Intentions (Mga Layunin)</td></tr><tr><th></th><th>Sesyon 1</th><th>Sesyon 2</th><th>Sesyon 3</th><th>Sesyon 4</th></tr>
+<tr>${cell('Learning Competency:', 'competency')}</tr><tr>${cell('Learning Objectives:', 'objective')}</tr><tr>${cell('Learner Context:', 'context')}</tr></table><br>
+<table><tr><td class="shade" colspan="5">Learning Experience (Karanasan sa Pagkatuto)</td></tr><tr><th></th><th>Sesyon 1</th><th>Sesyon 2</th><th>Sesyon 3</th><th>Sesyon 4</th></tr>
+<tr>${cell('Pre-Lesson (Bago ang Aralin):','pre')}</tr><tr>${cell('Flow (Daloy):','flow')}</tr><tr>${cell('Learning Resources (Mga Sanggunian sa Pagkatuto):','resources')}</tr><tr>${cell('Opportunities for integration (Mga Oportunidad para sa Integrasyon):','integration')}</tr></table><br>
+<table><tr><td class="shade" colspan="5">Assessment (Pagtatasa)</td></tr><tr><th></th><th>Sesyon 1</th><th>Sesyon 2</th><th>Sesyon 3</th><th>Sesyon 4</th></tr><tr>${cell('Formative Assessment / Pormatibong Pagtatasa:','assessment')}</tr></table><br>
+<table><tr><td class="shade" colspan="5">Ways Forward (Mga Paraang Pasulong)</td></tr><tr><th></th><th>Sesyon 1</th><th>Sesyon 2</th><th>Sesyon 3</th><th>Sesyon 4</th></tr>
+<tr>${cell('Extended learning opportunities / Pinalawak na oportunidad sa pagkatuto:','extended')}</tr><tr>${cell('Reflections / Mga Repleksyon:','reflection')}</tr></table><br>
+<table><tr><td><b>Inihanda ni:</b><br>${esc(val('teacher'))}<br>${esc(val('teacherPos'))}</td><td><b>Iniwasto ni:</b><br>${esc(val('reviewer'))}<br>${esc(val('reviewerPos'))}</td><td><b>Pinagtibay ni:</b><br>${esc(val('approver'))}<br>${esc(val('approverPos'))}</td></tr></table>`;
+$('doc').innerHTML=html;page('preview')}
+function downloadWord(){makePreview();let body=$('doc').innerHTML;let h=`<!doctype html><html><head><meta charset="utf-8"><style>body{font-family:"Times New Roman";font-size:10pt}.center{text-align:center}table{border-collapse:collapse;width:100%;table-layout:fixed}td,th{border:1px solid #222;padding:5px;vertical-align:top}.shade{background:#ddd;font-weight:bold;text-align:center}.left{width:25%;font-weight:bold;font-style:italic}</style></head><body>${body}</body></html>`;let blob=new Blob(['\ufeff',h],{type:'application/msword'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`GuroFilipino-DLP-${val('week')||'Draft'}.doc`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function copySession(from,to){sections.forEach(s=>$(s+to).value=$(s+from).value)}
+function autoGenerate(){
+ const topic=val('lesson')||'ang paksang aralin';
+ const comp=val('targetCompetency')||'[Ilagay ang eksaktong competency mula sa Curriculum Guide]';
+ const notes=val('sourceNotes')||'[Maglagay ng source notes upang mas maging tiyak ang nilalaman.]';
+ const obj=[
+  `Natutukoy at naipaliliwanag ang mahahalagang konsepto tungkol sa ${topic}.`,
+  `Nasusuri ang mga impormasyon at halimbawa kaugnay ng ${topic} batay sa ibinigay na sanggunian.`,
+  `Nailalapat ang pag-unawa sa ${topic} sa isang kolaboratibo o kontekstuwalisadong gawain.`,
+  `Nakapagninilay at nakapagpapakita ng pagkatuto tungkol sa ${topic} sa pamamagitan ng pagtataya.`
+ ];
+ const pre=[
+  `TUGON-TANONG: Balikan ang dating kaalaman na may kaugnayan sa ${topic}. Magbigay ng 3 paunang tanong at hayaang magbahagi ang mga mag-aaral ng kanilang nalalaman.`,
+  `TUKOY-SALITA: Pumili ng mahahalagang salita mula sa aralin. Tukuyin ang kahulugan ayon sa konteksto at gamitin ang mga ito sa pangungusap.`,
+  `TANONG-TUGON: Maglahad ng maikling sitwasyon o teksto tungkol sa ${topic}. Iugnay ito sa mga konseptong natalakay sa mga naunang sesyon.`,
+  `BINTANA NG PAG-UNAWA: Balikan ang mahahalagang ideya mula Sesyon 1–3 at bumuo ng ugnayan ng mga konsepto bilang paghahanda sa pagtataya.`
+ ];
+ const flow=[
+  `TALAKAY-UNAWA: Basahin at talakayin ang source notes. Tukuyin ang pangunahing ideya at mahahalagang detalye. Batayan: ${notes}`,
+  `UGNAY-KONSEPTO: Pangkatin ang klase. Bumuo ng graphic organizer na nagpapakita ng ugnayan ng mahahalagang konsepto sa ${topic}. Ipaliwanag ang output.`,
+  `LAHAD-OPINYON: Magbigay ng sitwasyong maiuugnay sa ${topic}. Maglahad ng opinyon na may malinaw na batayan at makinig sa pananaw ng ibang pangkat.`,
+  `GABAY-NILAY: Ibuod ang natutuhan sa buong linggo. Ipasagot: Ano ang pinakamahalagang natutuhan? Paano ito maiuugnay sa sariling karanasan o kasalukuyang konteksto?`
+ ];
+ const assess=[
+  `EXIT CHECK: Magbigay ng 3 maikling tanong upang matukoy kung naunawaan ang pangunahing konsepto ng ${topic}.`,
+  `PORMATIBONG PAGTATASA: 5-item check for understanding tungkol sa mga ideyang tinalakay. Isama ang pagkakataong maitama at maipaliwanag ng mag-aaral ang sagot.`,
+  `PERFORMANCE CHECK: Gumamit ng maikling rubrik upang tasahin ang pangkatang output batay sa Nilalaman, Organisasyon, Wika, at Presentasyon.`,
+  `PAGSUSULIT: Bumuo ng kombinasyon ng 5 multiple-choice items, 3 Tama/Mali, at isang maikling constructed-response item batay lamang sa beripikadong lesson content.`
+ ];
+ for(let i=1;i<=4;i++){
+   $('competency'+i).value=comp;
+   $('objective'+i).value=obj[i-1];
+   $('context'+i).value=`Iangkop batay sa aktuwal na obserbasyon sa mga mag-aaral sa Sesyon ${i}: dating kaalaman, interes, partisipasyon, lakas, at posibleng hadlang sa pagkatuto.`;
+   $('pre'+i).value=pre[i-1];
+   $('flow'+i).value=flow[i-1];
+   $('resources'+i).value=`Opisyal na Curriculum Guide\nLesson Exemplar / teacher-verified material\nMultimedia presentation\nWorksheet\nMga Larawan / graphic organizer`;
+   $('integration'+i).value=`Tukuyin ang makabuluhang integrasyon sa ibang asignatura, SDG, lokal na konteksto, media and information literacy, o values education kung naaangkop sa ${topic}.`;
+   $('assessment'+i).value=assess[i-1];
+   $('extended'+i).value=i<4?`Magbasa o magsaliksik ng isang maikling halimbawa na may kaugnayan sa ${topic}. Itala ang 3 mahahalagang ideya at ihanda para sa susunod na sesyon.`:`Balikan ang mga bahagi na hindi pa ganap na naunawaan. Gumawa ng maikling synthesis ng natutuhan sa buong linggo.`;
+   $('reflection'+i).value=`Punan pagkatapos ng Sesyon ${i}: Ano ang naging mabisa? Ano ang naging hamon? Sino ang nangangailangan ng karagdagang suporta? Ano ang babaguhin sa susunod na pagtuturo?`;
+ }
+ save();
+ alert('Nabuo ang draft ng apat na sesyon. I-review at i-edit ang lahat ng bahagi bago gamitin.');
+}
 
-<section id="home" class="page active">
-<div class="grid">
-<div class="card"><span class="badge">MATATAG</span><div class="big">🧭</div><h3>Filipino Teaching Hub</h3><p>Isang mabilis na workspace para sa pagpaplano, pagtataya, rubrik at mga sanggunian.</p></div>
-<div class="card"><div class="big">📝</div><h3>DLL gamit ang ILAW</h3><p>Bumuo at mag-edit ng lesson flow ayon sa iyong sariling ILAW framework.</p><button class="btn" onclick="go('dll')">Gumawa ng DLL</button></div>
-<div class="card"><div class="big">❓</div><h3>Question Generator</h3><p>Gumawa ng editable multiple-choice questions sa Filipino na may answer key.</p><button class="btn" onclick="go('quiz')">Gumawa ng Tanong</button></div>
-<div class="card"><div class="big">📚</div><h3>Opisyal na Sanggunian</h3><p>Direktang links sa DepEd MATATAG Filipino Curriculum Guide at iba pang opisyal na resources.</p><button class="btn" onclick="go('resources')">Buksan</button></div>
-</div>
-<div class="card" style="margin-top:14px"><h3>Paalaala</h3><p class="note">Ang app na ito ay teacher-assistance tool. I-review ang awtomatikong nabuong lesson content at assessment bago gamitin. Para sa opisyal na competency at curriculum wording, sumangguni sa kasalukuyang DepEd issuances at Curriculum Guides.</p></div>
-</section>
-
-<section id="dll" class="page">
-<div class="card" style="margin-top:16px"><h2>DLL Generator • ILAW</h2><p class="note">Editable ang kahulugan ng bawat titik upang tumugma sa ILAW framework na ginagamit ng inyong paaralan/division.</p>
-<div class="row"><div><label>Baitang</label><select id="grade"><option>7</option><option selected>8</option><option>9</option><option>10</option></select></div><div><label>Markahan / Linggo</label><input id="week" placeholder="Hal. Ikalawang Markahan • Linggo 3"></div></div>
-<label>Paksa / Aralin</label><input id="topic" placeholder="Hal. Tekstong Impormatibo">
-<label>Pamantayan / Kasanayang Pampagkatuto</label><textarea id="competency" placeholder="Ilagay ang eksaktong competency mula sa opisyal na Curriculum Guide."></textarea>
-<label>Layunin</label><textarea id="objective" placeholder="Sa pagtatapos ng aralin, ang mga mag-aaral ay..."></textarea>
-<div class="row">
-<div><label>I — Kahulugan / Yugto</label><input id="iName" value="Introduksyon"><textarea id="iText" placeholder="Panimulang gawain, pagganyak, balik-aral..."></textarea></div>
-<div><label>L — Kahulugan / Yugto</label><input id="lName" value="Linangin"><textarea id="lText" placeholder="Paglinang ng konsepto at kasanayan..."></textarea></div>
-<div><label>A — Kahulugan / Yugto</label><input id="aName" value="Aplikasyon"><textarea id="aText" placeholder="Paglalapat / gawaing mag-aaral..."></textarea></div>
-<div><label>W — Kahulugan / Yugto</label><input id="wName" value="Wakas"><textarea id="wText" placeholder="Pagtataya, paglalagom, takdang gawain..."></textarea></div>
-</div>
-<label>Kagamitan / Sanggunian</label><textarea id="materials"></textarea>
-<button class="btn gold" onclick="makeDLL()">Bumuo ng DLL</button> <button class="btn alt" onclick="window.print()">I-print / Save PDF</button>
-<div id="dllOut" class="out">Dito lalabas ang iyong DLL.</div>
-</div></section>
-
-<section id="quiz" class="page">
-<div class="card" style="margin-top:16px"><h2>Filipino Question Generator</h2>
-<div class="row"><div><label>Paksa</label><input id="qtopic" placeholder="Hal. Konotasyon at Denotasyon"></div><div><label>Bilang ng Tanong</label><select id="qcount"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></div></div>
-<label>Mga konsepto / impormasyong pagbabatayan</label><textarea id="qsource" placeholder="Maglagay ng mahahalagang konsepto, depinisyon, halimbawa, o maikling notes. Mas mahusay ang tanong kapag may source notes."></textarea>
-<button class="btn gold" onclick="makeQuiz()">Bumuo ng Editable Quiz</button>
-<div id="quizOut" class="out">Ang generator na ito ay offline/template-based sa v1 at hindi nagpapanggap na AI. Maaari mong i-edit ang lahat ng tanong.</div>
-</div></section>
-
-<section id="rubric" class="page"><div class="card" style="margin-top:16px"><h2>Rubrik Generator</h2>
-<label>Gawain</label><input id="task" placeholder="Hal. Sabayang Pagbigkas / Pagsulat ng Sanaysay">
-<label>Pamantayan (paghiwalayin ng kuwit)</label><input id="criteria" value="Nilalaman, Organisasyon, Wika, Presentasyon">
-<button class="btn gold" onclick="makeRubric()">Bumuo ng Rubrik</button><div id="rubricOut" class="out"></div></div></section>
-
-<section id="resources" class="page"><div class="card" style="margin-top:16px"><h2>Mapagkakatiwalaang Sanggunian</h2>
-<div class="resource"><div><b>DepEd MATATAG Curriculum • Phase 1</b><div class="note">Opisyal na curriculum resources</div></div><a target="_blank" href="https://www.deped.gov.ph/matatagcurriculumk147/">Buksan ↗</a></div>
-<div class="resource"><div><b>MATATAG Filipino Curriculum Guide</b><div class="note">Filipino Baitang 4 at 7 • official PDF</div></div><a target="_blank" href="https://www.deped.gov.ph/wp-content/uploads/MATATAG-FILIPINO-CG-Grades-4-at-7-.pdf">Buksan ↗</a></div>
-<div class="resource"><div><b>DepEd Order No. 010, s. 2024</b><div class="note">Policy Guidelines on MATATAG Curriculum</div></div><a target="_blank" href="https://www.deped.gov.ph/2024/07/23/july-23-2024-do-010-s-2024-policy-guidelines-on-the-implementation-of-the-matatag-curriculum/">Buksan ↗</a></div>
-<div class="resource"><div><b>DepEd Official Website</b></div><a target="_blank" href="https://www.deped.gov.ph/">Buksan ↗</a></div>
-</div></section>
-
-<section id="notes" class="page"><div class="card" style="margin-top:16px"><h2>Aking Materyales</h2><p class="note">Naka-save lamang sa browser/device na ito.</p>
-<label>Pamagat</label><input id="noteTitle"><label>Nilalaman</label><textarea id="noteBody" style="min-height:180px"></textarea>
-<button class="btn" onclick="saveNote()">I-save</button> <button class="btn alt" onclick="clearNote()">Burahin</button><div id="saved" class="out"></div>
-</div></section>
-</div>
-<script>
-const $=id=>document.getElementById(id);
-document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.page));
-function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');document.querySelector(`[data-page="${id}"]`).classList.add('active');scrollTo(0,0)}
-function v(id){return $(id).value.trim()}
-function makeDLL(){let t=`DAILY LESSON LOG • FILIPINO ${v('grade')}\n${v('week')}\n\nPAKSA: ${v('topic')||'—'}\nKASANAYANG PAMPAGKATUTO: ${v('competency')||'—'}\nLAYUNIN:\n${v('objective')||'—'}\n\nI — ${v('iName')}\n${v('iText')||'—'}\n\nL — ${v('lName')}\n${v('lText')||'—'}\n\nA — ${v('aName')}\n${v('aText')||'—'}\n\nW — ${v('wName')}\n${v('wText')||'—'}\n\nKAGAMITAN / SANGGUNIAN:\n${v('materials')||'—'}\n\nPAGNINILAY:\n• Bilang ng mag-aaral na nakakuha ng 80%: ______\n• Nangangailangan ng karagdagang gawain: ______\n• Estratehiyang naging mabisa: ____________________`; $('dllOut').textContent=t}
-function makeQuiz(){
- let topic=v('qtopic')||'paksa', src=v('qsource'), n=+$('qcount').value;
- let facts=src.split(/[.\n;]/).map(x=>x.trim()).filter(x=>x.length>8);
- let stems=['Alin sa sumusunod ang pinakamahusay na paglalarawan sa','Ano ang wastong pahayag tungkol sa','Batay sa aralin, ano ang mahalagang ideya tungkol sa','Aling sitwasyon ang maaaring iugnay sa','Ano ang maaaring maging halimbawa ng'];
- let out=`PAGSASANAY: ${topic}\nPanuto: Basahin ang bawat tanong at piliin ang pinakamahusay na sagot.\n\n`;
- for(let i=0;i<n;i++){let f=facts[i%Math.max(facts.length,1)]||`[Ilagay rito ang pangunahing konsepto tungkol sa ${topic}]`;out+=`${i+1}. ${stems[i%stems.length]} ${topic}?\n   A. [Distractor]\n   B. ${f}\n   C. [Distractor]\n   D. [Distractor]\n\n`}
- out+=`ANSWER KEY (draft):\n${Array.from({length:n},(_,i)=>`${i+1}-B`).join(', ')}\n\nPAALALA: I-edit ang distractors at beripikahin ang bawat sagot bago gamitin.`;$('quizOut').textContent=out}
-function makeRubric(){let cs=v('criteria').split(',').map(x=>x.trim()).filter(Boolean),out=`RUBRIK: ${v('task')||'Gawain'}\n\nPamantayan | 4 - Napakahusay | 3 - Mahusay | 2 - Nalilinang | 1 - Nangangailangan ng Gabay\n`;cs.forEach(c=>out+=`${c} | Lubos na naipamalas | Malinaw na naipamalas | Bahagyang naipamalas | Kailangan pa ng suporta\n`);out+=`\nKabuuang Puntos: ____ / ${cs.length*4}`;$('rubricOut').textContent=out}
-function saveNote(){localStorage.setItem('gf_note',JSON.stringify({title:v('noteTitle'),body:v('noteBody')}));showNote()}
-function clearNote(){localStorage.removeItem('gf_note');$('noteTitle').value='';$('noteBody').value='';showNote()}
-function showNote(){let x=JSON.parse(localStorage.getItem('gf_note')||'null');$('saved').textContent=x?`Naka-save: ${x.title||'Walang pamagat'}\n\n${x.body}`:'Wala pang naka-save.';if(x){$('noteTitle').value=x.title;$('noteBody').value=x.body}}
-showNote();
-if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');
+load();
+if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js');
 </script></body></html>

@@ -1,24 +1,14 @@
-# GuroFilipino v1
+# GuroFilipino v2.1
+Based on the supplied 4-session DLP sample format.
 
-Mobile-friendly installable PWA for Filipino teachers.
+New:
+- Guided automatic 4-session lesson drafting
+- Exact target competency field
+- Source-notes field to ground draft activities
+- Auto-suggested objectives, pre-lesson, flow, assessment, integration, extended learning, and reflection prompts
+- All generated content remains editable
+- Local draft saving
+- Word-compatible export and Print/Save PDF
+- Original sample DOCX included
 
-## Run locally
-Open `index.html` for basic use. For install/PWA support, serve the folder over HTTPS or localhost.
-
-## Free GitHub Pages deployment
-1. Create a GitHub repository named `gurofilipino`.
-2. Upload all files from this folder to the repository root.
-3. Open Settings > Pages.
-4. Under Build and deployment, choose **Deploy from a branch**.
-5. Choose `main` and `/ (root)`, then Save.
-6. Open the published HTTPS address in Chrome on Android and choose **Add to Home screen / Install app**.
-
-## Included in v1
-- ILAW DLL builder (editable I/L/A/W labels)
-- Offline template-based Filipino quiz builder
-- Rubric generator
-- Official DepEd resource links
-- Local teacher notes/material storage
-- PWA manifest + offline shell cache
-
-Important: Generated instructional content must be reviewed by the teacher. Exact competencies should be copied from the applicable official DepEd Curriculum Guide.
+This version's automatic drafting is offline/template-based. It does not call a cloud AI service. Teacher verification remains required.
